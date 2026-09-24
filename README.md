@@ -1,0 +1,1 @@
+# Svarka_Jalal-Abad
