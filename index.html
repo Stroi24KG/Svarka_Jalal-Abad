@@ -1,2386 +1,4785 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>СТАЛЬ — сварка и металлоконструкции</title>
-
-<meta name="description"
-content="Сварка и изготовление металлоконструкций под заказ в Кыргызстане. Ворота, навесы, заборы, лестницы, каркасы и другие конструкции.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================================================
-   ОСНОВНЫЕ НАСТРОЙКИ
-   ========================================================= */
-
-:root{
-  --bg:#17191a;
-  --surface:#222526;
-  --surface2:#292d2e;
-  --line:#383d3f;
-
-  --text:#f3f1eb;
-  --muted:#9da4a6;
-
-  --orange:#ff7a1a;
-  --orange-hover:#ff913f;
-
-  --green:#55c878;
-  --red:#ff7777;
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  line-height:1.55;
-}
-
-a{
-  color:inherit;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-.container{
-  width:min(1120px,calc(100% - 40px));
-  margin:0 auto;
-}
-
-.section{
-  padding:85px 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-.logo{
-  font-family:"Bebas Neue",sans-serif;
-  letter-spacing:.02em;
-}
-
-h2{
-  font-size:clamp(36px,5vw,55px);
-  line-height:1;
-}
+  <meta charset="UTF-8">
 
-.eyebrow{
-  display:inline-block;
-  color:var(--orange);
-  font-size:13px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:10px;
-}
+  <!-- =========================================
+       ОСНОВНЫЕ НАСТРОЙКИ
+  ========================================== -->
 
-.muted{
-  color:var(--muted);
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>ИСКРА — Сварка и металлоконструкции</title>
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+  <meta
+    name="description"
+    content="Сварка и изготовление металлоконструкций под ключ. Навесы, лестницы, ворота, ограждения, каркасы и производственные конструкции."
+  >
 
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  <meta
+    name="keywords"
+    content="сварка, металлоконструкции, сварочные работы, навесы, ворота, лестницы, Бишкек, Кыргызстан"
+  >
 
-  background:rgba(23,25,26,.94);
-  backdrop-filter:blur(12px);
+  <meta name="theme-color" content="#0b0c0e">
 
-  border-bottom:1px solid var(--line);
-}
+  <!-- Open Graph -->
+  <meta property="og:title" content="ИСКРА — Сварка и металлоконструкции">
+  <meta property="og:description" content="Металл. Точность. Результат.">
+  <meta property="og:type" content="website">
 
-.nav{
-  min-height:72px;
+  <!-- =========================================
+       ШРИФТЫ
+  ========================================== -->
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  gap:20px;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-.logo{
-  font-size:32px;
-  text-decoration:none;
-}
+  <style>
 
-.logo span{
-  color:var(--orange);
-}
+    /* =========================================
+       01. ОСНОВНЫЕ ПЕРЕМЕННЫЕ
+    ========================================== */
 
-nav ul{
-  display:flex;
-  gap:28px;
-  list-style:none;
-}
+    :root {
+      --bg: #08090a;
+      --bg2: #0e1012;
+      --card: #121416;
+      --card2: #17191c;
 
-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:14px;
-  font-weight:600;
-}
+      --text: #f3f3f0;
+      --muted: #92969b;
 
-nav a:hover{
-  color:var(--text);
-}
+      --orange: #ff5a16;
+      --orange2: #ff7a22;
 
-.nav-button{
-  background:var(--orange);
-  color:#111;
+      --line: rgba(255,255,255,.09);
 
-  padding:11px 18px;
+      --radius: 22px;
 
-  border-radius:4px;
+      --container: 1240px;
 
-  text-decoration:none;
+      --shadow:
+        0 25px 80px rgba(0,0,0,.45);
+    }
 
-  font-size:14px;
-  font-weight:800;
-}
 
+    /* =========================================
+       02. RESET
+    ========================================== */
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+    html {
+      scroll-behavior: smooth;
+    }
 
-  min-height:50px;
+    body {
+      background:
+        radial-gradient(
+          circle at 70% 10%,
+          rgba(255,90,22,.09),
+          transparent 30%
+        ),
+        var(--bg);
 
-  padding:0 24px;
+      color: var(--text);
 
-  border-radius:4px;
+      font-family: "Manrope", sans-serif;
 
-  border:1px solid transparent;
+      line-height: 1.5;
 
-  font-size:15px;
-  font-weight:800;
+      overflow-x: hidden;
+    }
 
-  text-decoration:none;
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-  cursor:pointer;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  transition:.2s;
-}
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
 
-.button-primary{
-  background:var(--orange);
-  color:#151515;
-}
+    button {
+      cursor: pointer;
+    }
 
-.button-primary:hover{
-  background:var(--orange-hover);
-  transform:translateY(-1px);
-}
 
-.button-outline{
-  background:transparent;
-  border-color:var(--line);
-  color:var(--text);
-}
+    /* =========================================
+       03. ОБЩИЕ КЛАССЫ
+    ========================================== */
 
-.button-outline:hover{
-  border-color:var(--orange);
-}
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--container)
+      );
 
+      margin: auto;
+    }
 
-/* =========================================================
-   HERO
-   ========================================================= */
+    .section {
+      padding: 120px 0;
+      position: relative;
+    }
 
-.hero{
-  min-height:680px;
+    .section-label {
+      display: inline-flex;
 
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
+      align-items: center;
+      gap: 10px;
 
-  align-items:center;
+      color: var(--orange);
 
-  gap:60px;
-}
+      font-size: 12px;
+      font-weight: 800;
 
-.hero h1{
-  font-size:clamp(55px,8vw,96px);
-  line-height:.9;
+      letter-spacing: .18em;
+      text-transform: uppercase;
 
-  margin-bottom:25px;
-}
+      margin-bottom: 20px;
+    }
 
-.hero h1 span{
-  color:var(--orange);
-}
+    .section-label::before {
+      content: "";
 
-.hero-description{
-  color:var(--muted);
+      width: 28px;
+      height: 2px;
 
-  max-width:650px;
+      background: var(--orange);
+    }
 
-  font-size:18px;
+    .section-title {
+      font-family: "Oswald", sans-serif;
 
-  margin-bottom:32px;
-}
+      font-size: clamp(42px, 6vw, 78px);
 
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
+      line-height: .95;
 
-.hero-art{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+      text-transform: uppercase;
 
-.hero-art svg{
-  width:min(100%,430px);
-}
+      letter-spacing: -.025em;
 
+      max-width: 900px;
+    }
 
-/* =========================================================
-   SERVICES
-   ========================================================= */
+    .section-description {
+      color: var(--muted);
 
-.services{
-  border-top:1px solid var(--line);
-}
+      max-width: 650px;
 
-.section-title{
-  max-width:700px;
-  margin-bottom:42px;
-}
+      font-size: 17px;
 
-.section-title p{
-  margin-top:14px;
-}
+      margin-top: 24px;
+    }
 
-.service-list{
-  border-top:1px solid var(--line);
-}
 
-.service{
-  display:grid;
-  grid-template-columns:80px 260px 1fr;
+    /* =========================================
+       04. HEADER
+    ========================================== */
 
-  gap:25px;
+    header {
+      position: fixed;
 
-  padding:30px 0;
+      top: 0;
+      left: 0;
 
-  border-bottom:1px solid var(--line);
-}
+      width: 100%;
 
-.service-number{
-  color:var(--orange);
+      z-index: 1000;
 
-  font-family:"Bebas Neue",sans-serif;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(8,9,10,.92),
+          rgba(8,9,10,.5),
+          transparent
+        );
 
-  font-size:26px;
-}
+      transition: .3s;
+    }
 
-.service h3{
-  font-size:29px;
-}
+    header.scrolled {
+      background: rgba(8,9,10,.94);
 
-.service p{
-  color:var(--muted);
-}
+      backdrop-filter: blur(20px);
 
+      border-bottom: 1px solid var(--line);
+    }
 
-/* =========================================================
-   ADVANTAGES
-   ========================================================= */
+    .nav {
+      height: 84px;
 
-.advantages{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+      display: flex;
 
-  border:1px solid var(--line);
-  border-radius:5px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  overflow:hidden;
-}
+    .logo {
+      display: flex;
 
-.advantage{
-  padding:30px;
-  border-right:1px solid var(--line);
-}
+      align-items: center;
 
-.advantage:last-child{
-  border-right:none;
-}
+      gap: 12px;
 
-.advantage-number{
-  color:var(--orange);
+      font-family: "Oswald", sans-serif;
 
-  font-family:"Bebas Neue",sans-serif;
+      font-size: 25px;
 
-  font-size:38px;
+      letter-spacing: .04em;
+    }
 
-  margin-bottom:8px;
-}
+    .logo-mark {
+      width: 36px;
+      height: 36px;
 
-.advantage h3{
-  font-size:25px;
-  margin-bottom:8px;
-}
+      display: grid;
+      place-items: center;
 
-.advantage p{
-  color:var(--muted);
-  font-size:14px;
-}
+      background: var(--orange);
 
+      color: #000;
 
-/* =========================================================
-   PROCESS
-   ========================================================= */
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        80% 100%,
+        0 100%
+      );
 
-.process-box{
-  background:var(--surface);
+      font-weight: 900;
+    }
 
-  border:1px solid var(--line);
+    .nav-links {
+      display: flex;
 
-  border-radius:5px;
+      align-items: center;
 
-  overflow:hidden;
-}
+      gap: 34px;
+    }
 
-.process-header{
-  padding:30px 30px 22px;
-}
+    .nav-links a {
+      color: #c7c9cb;
 
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-}
+      font-size: 13px;
 
-.step{
-  padding:30px;
+      font-weight: 700;
 
-  border-right:1px solid var(--line);
-}
+      transition: .25s;
+    }
 
-.step:last-child{
-  border-right:none;
-}
+    .nav-links a:hover {
+      color: var(--orange);
+    }
 
-.step-number{
-  color:var(--orange);
+    .nav-phone {
+      display: flex;
 
-  font-family:"Bebas Neue",sans-serif;
+      align-items: center;
 
-  font-size:38px;
+      gap: 10px;
 
-  margin-bottom:8px;
-}
+      font-weight: 800;
 
-.step h3{
-  font-size:23px;
-  margin-bottom:8px;
-}
+      font-size: 14px;
+    }
 
-.step p{
-  color:var(--muted);
-  font-size:14px;
-}
+    .nav-phone span {
+      color: var(--orange);
+    }
 
+    .menu-button {
+      display: none;
 
-/* =========================================================
-   CONTACT
-   ========================================================= */
+      width: 44px;
+      height: 44px;
 
-.contact{
-  border-top:1px solid var(--line);
-}
+      border: 1px solid var(--line);
 
-.contact-grid{
-  display:grid;
+      background: transparent;
 
-  grid-template-columns:.85fr 1.15fr;
+      color: white;
 
-  gap:70px;
+      border-radius: 10px;
+    }
 
-  align-items:start;
-}
 
-.contact-info h2{
-  margin-bottom:18px;
-}
+    /* =========================================
+       05. HERO
+    ========================================== */
 
-.contact-info > p{
-  color:var(--muted);
+    .hero {
+      min-height: 100vh;
 
-  margin-bottom:30px;
-}
+      position: relative;
 
-.contact-item{
-  margin-bottom:18px;
-}
+      display: flex;
 
-.contact-item small{
-  display:block;
+      align-items: center;
 
-  color:var(--muted);
+      padding-top: 100px;
 
-  font-size:12px;
+      overflow: hidden;
+    }
 
-  margin-bottom:3px;
-}
+    /*
+      Фоновое изображение.
+      Сейчас используется внешний источник Unsplash.
 
-.contact-item strong{
-  font-size:16px;
-}
+      Если захочешь свои фотографии —
+      просто замени URL внутри background-image.
+    */
 
+    .hero::before {
+      content: "";
 
-/* =========================================================
-   FORM
-   ========================================================= */
+      position: absolute;
 
-.form-card{
-  background:var(--surface);
+      inset: 0;
 
-  border:1px solid var(--line);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,9,10,.98) 0%,
+          rgba(8,9,10,.88) 42%,
+          rgba(8,9,10,.35) 100%
+        ),
 
-  border-radius:6px;
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2200&q=85")
+        center/cover;
 
-  padding:30px;
-}
+      z-index: -2;
+    }
 
-.form-card h3{
-  font-size:32px;
+    .hero::after {
+      content: "";
 
-  margin-bottom:5px;
-}
+      position: absolute;
 
-.form-description{
-  color:var(--muted);
+      inset: 0;
 
-  font-size:14px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(8,9,10,.2),
+          transparent 50%,
+          rgba(8,9,10,1)
+        );
 
-  margin-bottom:25px;
-}
+      z-index: -1;
+    }
 
-form{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
+    .hero-content {
+      width: 100%;
+    }
 
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
+    .hero-label {
+      display: flex;
 
-label{
-  display:block;
+      align-items: center;
 
-  color:var(--muted);
+      gap: 12px;
 
-  font-size:13px;
-  font-weight:600;
+      color: var(--orange);
 
-  margin-bottom:6px;
-}
+      text-transform: uppercase;
 
-input,
-textarea,
-select{
-  width:100%;
+      font-size: 12px;
 
-  min-height:48px;
+      font-weight: 800;
 
-  padding:12px 14px;
+      letter-spacing: .2em;
 
-  background:#191c1d;
+      margin-bottom: 25px;
+    }
 
-  color:var(--text);
+    .hero-label-dot {
+      width: 9px;
+      height: 9px;
 
-  border:1px solid var(--line);
+      border-radius: 50%;
 
-  border-radius:4px;
+      background: var(--orange);
 
-  outline:none;
-}
+      box-shadow:
+        0 0 0 6px rgba(255,90,22,.12),
+        0 0 25px var(--orange);
+    }
 
-textarea{
-  min-height:115px;
-  resize:vertical;
-}
+    .hero h1 {
+      font-family: "Oswald", sans-serif;
 
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:var(--orange);
+      text-transform: uppercase;
 
-  box-shadow:0 0 0 2px rgba(255,122,26,.12);
-}
+      font-size: clamp(70px, 11vw, 160px);
 
-.checkbox{
-  display:flex;
+      line-height: .82;
 
-  align-items:flex-start;
+      letter-spacing: -.045em;
 
-  gap:9px;
+      max-width: 1000px;
+    }
 
-  color:var(--muted);
+    .hero h1 strong {
+      color: var(--orange);
 
-  font-size:12px;
-}
+      font-weight: 700;
+    }
 
-.checkbox input{
-  width:17px;
-  min-height:17px;
-  margin-top:1px;
-}
+    .hero-subtitle {
+      max-width: 610px;
 
-.checkbox a{
-  color:var(--orange);
-}
+      color: #c0c2c4;
 
-.form-status{
-  min-height:22px;
+      font-size: 18px;
 
-  font-size:14px;
-  font-weight:600;
-}
+      margin-top: 32px;
+    }
 
-.form-status.ok{
-  color:var(--green);
-}
+    .hero-buttons {
+      display: flex;
 
-.form-status.error{
-  color:var(--red);
-}
+      gap: 14px;
 
+      flex-wrap: wrap;
 
-/* =========================================================
-   WORKERS
-   ========================================================= */
+      margin-top: 40px;
+    }
 
-.workers{
-  background:var(--surface);
 
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
+    /* =========================================
+       06. BUTTONS
+    ========================================== */
 
-.workers-grid{
-  display:grid;
+    .btn {
+      min-height: 56px;
 
-  grid-template-columns:1fr .9fr;
+      display: inline-flex;
 
-  gap:60px;
+      align-items: center;
+      justify-content: center;
 
-  align-items:center;
-}
+      gap: 12px;
 
-.workers h2{
-  font-size:clamp(42px,5vw,62px);
+      padding: 0 28px;
 
-  margin-bottom:16px;
-}
+      border-radius: 10px;
 
-.workers-description{
-  color:var(--muted);
+      border: 1px solid transparent;
 
-  max-width:600px;
+      font-size: 13px;
 
-  margin-bottom:25px;
-}
+      font-weight: 900;
 
-.worker-form{
-  background:var(--bg);
+      text-transform: uppercase;
 
-  border:1px solid var(--line);
+      letter-spacing: .06em;
 
-  border-radius:6px;
+      transition:
+        transform .25s,
+        background .25s,
+        border .25s,
+        box-shadow .25s;
+    }
 
-  padding:28px;
-}
+    .btn:hover {
+      transform: translateY(-3px);
+    }
 
+    .btn-primary {
+      background: var(--orange);
 
-/* =========================================================
-   PRIVACY
-   ========================================================= */
+      color: #080808;
 
-.privacy{
-  border-top:1px solid var(--line);
-}
+      box-shadow:
+        0 12px 35px rgba(255,90,22,.18);
+    }
 
-.privacy-content{
-  max-width:800px;
-}
+    .btn-primary:hover {
+      background: var(--orange2);
 
-.privacy h2{
-  margin-bottom:12px;
-}
+      box-shadow:
+        0 18px 45px rgba(255,90,22,.3);
+    }
 
-.privacy h3{
-  font-size:22px;
-  margin:30px 0 8px;
-}
+    .btn-outline {
+      background: rgba(255,255,255,.04);
 
-.privacy p,
-.privacy li{
-  color:var(--muted);
-  font-size:14px;
-}
+      border-color: rgba(255,255,255,.16);
 
-.privacy ul{
-  padding-left:20px;
-}
+      color: white;
 
+      backdrop-filter: blur(10px);
+    }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+    .btn-outline:hover {
+      border-color: var(--orange);
+    }
 
-footer{
-  border-top:1px solid var(--line);
 
-  padding:30px 0;
+    /* =========================================
+       07. HERO STATS
+    ========================================== */
 
-  color:var(--muted);
+    .hero-stats {
+      display: flex;
 
-  font-size:13px;
-}
+      flex-wrap: wrap;
 
-.footer-content{
-  display:flex;
+      gap: 0;
 
-  justify-content:space-between;
+      margin-top: 75px;
 
-  gap:20px;
+      border-top: 1px solid var(--line);
 
-  flex-wrap:wrap;
-}
+      max-width: 760px;
+    }
 
+    .stat {
+      min-width: 170px;
 
-/* =========================================================
-   MOBILE CTA
-   ========================================================= */
+      padding:
+        22px 35px
+        0 0;
 
-.mobile-cta{
-  display:none;
-}
+      margin-right: 35px;
+    }
 
+    .stat-number {
+      font-family: "Oswald", sans-serif;
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+      font-size: 38px;
 
-@media(max-width:900px){
+      line-height: 1;
+    }
 
-  .hero{
-    grid-template-columns:1fr;
+    .stat-text {
+      color: var(--muted);
 
-    padding-top:60px;
+      font-size: 11px;
 
-    min-height:auto;
-  }
+      text-transform: uppercase;
 
-  .hero-art{
-    order:-1;
-  }
+      letter-spacing: .1em;
 
-  .hero-art svg{
-    max-width:280px;
-  }
+      margin-top: 8px;
+    }
 
-  .service{
-    grid-template-columns:70px 220px 1fr;
-  }
 
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
+    /* =========================================
+       08. MARQUEE
+    ========================================== */
 
-  .workers-grid{
-    grid-template-columns:1fr;
-  }
+    .marquee {
+      overflow: hidden;
 
-}
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
 
+      background: #0c0e10;
+    }
 
-/* =========================================================
-   SMARTPHONE
-   ========================================================= */
+    .marquee-track {
+      display: flex;
 
-@media(max-width:700px){
+      width: max-content;
 
-  .container{
-    width:calc(100% - 28px);
-  }
+      animation: marquee 25s linear infinite;
+    }
 
-  .section{
-    padding:60px 0;
-  }
+    .marquee-item {
+      display: flex;
 
-  nav{
-    display:none;
-  }
+      align-items: center;
 
-  .nav-button{
-    padding:10px 13px;
-    font-size:12px;
-  }
+      gap: 28px;
 
-  .hero h1{
-    font-size:58px;
-  }
+      padding: 22px 28px;
 
-  .hero-description{
-    font-size:16px;
-  }
+      font-family: "Oswald", sans-serif;
 
-  .hero-buttons{
-    flex-direction:column;
-  }
+      font-size: 22px;
 
-  .button{
-    width:100%;
-  }
+      text-transform: uppercase;
 
-  .service{
-    grid-template-columns:1fr;
-    gap:7px;
-  }
+      white-space: nowrap;
+    }
 
-  .advantages{
-    grid-template-columns:1fr;
-  }
+    .marquee-item span {
+      color: var(--orange);
+    }
 
-  .advantage{
-    border-right:none;
-    border-bottom:1px solid var(--line);
-  }
+    @keyframes marquee {
 
-  .advantage:last-child{
-    border-bottom:none;
-  }
+      from {
+        transform: translateX(0);
+      }
 
-  .steps{
-    grid-template-columns:1fr;
-  }
+      to {
+        transform: translateX(-50%);
+      }
 
-  .step{
-    border-right:none;
-    border-bottom:1px solid var(--line);
-  }
+    }
 
-  .step:last-child{
-    border-bottom:none;
-  }
 
-  .form-card,
-  .worker-form{
-    padding:20px;
-  }
+    /* =========================================
+       09. ABOUT
+    ========================================== */
 
-  .form-row{
-    grid-template-columns:1fr;
-  }
+    .about-grid {
+      display: grid;
 
-  .mobile-cta{
-    display:block;
+      grid-template-columns:
+        1fr
+        1fr;
 
-    position:fixed;
+      gap: 80px;
 
-    left:12px;
-    right:12px;
-    bottom:12px;
+      align-items: center;
+    }
 
-    z-index:2000;
+    .about-image {
+      min-height: 620px;
 
-    background:var(--orange);
+      position: relative;
 
-    color:#151515;
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(0,0,0,.7)
+        ),
 
-    text-align:center;
+        url("https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80")
+        center/cover;
 
-    padding:14px;
+      border-radius: var(--radius);
 
-    border-radius:5px;
+      overflow: hidden;
 
-    font-size:14px;
-    font-weight:900;
+      box-shadow: var(--shadow);
+    }
 
-    text-decoration:none;
+    .about-image-badge {
+      position: absolute;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-  }
+      bottom: 25px;
+      left: 25px;
 
-  body{
-    padding-bottom:70px;
-  }
+      background: rgba(8,9,10,.85);
 
-}
+      backdrop-filter: blur(15px);
 
-</style>
+      border: 1px solid var(--line);
+
+      padding: 20px 24px;
+
+      border-radius: 14px;
+    }
+
+    .about-image-badge strong {
+      display: block;
+
+      font-family: "Oswald", sans-serif;
+
+      font-size: 40px;
+
+      color: var(--orange);
+    }
+
+    .about-image-badge span {
+      color: #bbb;
+
+      font-size: 12px;
+
+      text-transform: uppercase;
+    }
+
+    .about-list {
+      margin-top: 40px;
+
+      display: grid;
+
+      gap: 18px;
+    }
+
+    .about-list-item {
+      display: flex;
+
+      gap: 16px;
+
+      padding-bottom: 18px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .check {
+      flex: 0 0 28px;
+
+      width: 28px;
+      height: 28px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: rgba(255,90,22,.1);
+
+      color: var(--orange);
+
+      font-weight: 900;
+    }
+
+    .about-list-item strong {
+      display: block;
+
+      font-size: 15px;
+    }
+
+    .about-list-item p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 4px;
+    }
+
+
+    /* =========================================
+       10. SERVICES
+    ========================================== */
+
+    .services-head {
+      display: flex;
+
+      align-items: end;
+
+      justify-content: space-between;
+
+      gap: 40px;
+
+      margin-bottom: 55px;
+    }
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+    }
+
+    .service-card {
+      min-height: 350px;
+
+      position: relative;
+
+      padding: 28px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+
+      border: 1px solid var(--line);
+
+      background: var(--card);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      transition: .4s;
+    }
+
+    .service-card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 20%,
+          rgba(0,0,0,.9)
+        );
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(255,90,22,.45);
+    }
+
+    .service-bg {
+      position: absolute;
+
+      inset: 0;
+
+      background-size: cover;
+
+      background-position: center;
+
+      opacity: .7;
+
+      transition: .5s;
+    }
+
+    .service-card:hover .service-bg {
+      transform: scale(1.06);
+
+      opacity: .85;
+    }
+
+    .service-content {
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .service-number {
+      color: var(--orange);
+
+      font-family: "Oswald", sans-serif;
+
+      font-size: 14px;
+
+      margin-bottom: 12px;
+    }
+
+    .service-title {
+      font-family: "Oswald", sans-serif;
+
+      text-transform: uppercase;
+
+      font-size: 31px;
+
+      line-height: 1;
+    }
+
+    .service-description {
+      color: #aaa;
+
+      font-size: 12px;
+
+      margin-top: 12px;
+    }
+
+
+    /* =========================================
+       11. PROJECTS
+    ========================================== */
+
+    .projects {
+      background: #0b0d0f;
+    }
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(12, 1fr);
+
+      gap: 14px;
+
+      margin-top: 55px;
+    }
+
+    .project {
+      min-height: 400px;
+
+      position: relative;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+
+      grid-column: span 5;
+    }
+
+    .project:nth-child(2) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(3) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(4) {
+      grid-column: span 5;
+    }
+
+    .project-bg {
+      position: absolute;
+
+      inset: 0;
+
+      background-size: cover;
+
+      background-position: center;
+
+      transition: .5s;
+    }
+
+    .project:hover .project-bg {
+      transform: scale(1.05);
+    }
+
+    .project::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 25%,
+          rgba(0,0,0,.9)
+        );
+    }
+
+    .project-info {
+      position: absolute;
+
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+
+      z-index: 2;
+    }
+
+    .project-tag {
+      color: var(--orange);
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .12em;
+    }
+
+    .project-name {
+      font-family: "Oswald", sans-serif;
+
+      text-transform: uppercase;
+
+      font-size: 32px;
+
+      line-height: 1;
+
+      margin-top: 7px;
+    }
+
+
+    /* =========================================
+       12. PROCESS
+    ========================================== */
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      margin-top: 55px;
+
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .process-item {
+      padding: 35px;
+
+      min-height: 250px;
+
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      transition: .3s;
+    }
+
+    .process-item:hover {
+      background: var(--card);
+    }
+
+    .process-number {
+      color: var(--orange);
+
+      font-family: "Oswald", sans-serif;
+
+      font-size: 50px;
+
+      line-height: 1;
+    }
+
+    .process-title {
+      font-family: "Oswald", sans-serif;
+
+      font-size: 27px;
+
+      text-transform: uppercase;
+
+      margin-top: 45px;
+    }
+
+    .process-text {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 10px;
+    }
+
+
+    /* =========================================
+       13. WHY US
+    ========================================== */
+
+    .why {
+      background:
+        linear-gradient(
+          135deg,
+          #111315,
+          #08090a
+        );
+    }
+
+    .why-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 100px;
+
+      align-items: center;
+    }
+
+    .why-numbers {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .why-number {
+      padding: 35px;
+
+      border: 1px solid var(--line);
+
+      background: rgba(255,255,255,.025);
+
+      border-radius: 16px;
+    }
+
+    .why-number strong {
+      font-family: "Oswald", sans-serif;
+
+      font-size: 55px;
+
+      line-height: 1;
+
+      color: var(--orange);
+    }
+
+    .why-number span {
+      display: block;
+
+      color: #aaa;
+
+      font-size: 12px;
+
+      text-transform: uppercase;
+
+      margin-top: 8px;
+    }
+
+
+    /* =========================================
+       14. CTA
+    ========================================== */
+
+    .cta {
+      padding: 110px 0;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          #15100d,
+          #0d0e10
+        );
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cta::after {
+      content: "";
+
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      right: -200px;
+      top: -300px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,90,22,.2),
+          transparent 65%
+        );
+    }
+
+    .cta-inner {
+      position: relative;
+
+      z-index: 1;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 50px;
+    }
+
+    .cta-title {
+      font-family: "Oswald", sans-serif;
+
+      font-size: clamp(45px, 6vw, 80px);
+
+      text-transform: uppercase;
+
+      line-height: .9;
+    }
+
+    .cta-text {
+      color: var(--muted);
+
+      max-width: 520px;
+
+      margin-top: 20px;
+    }
+
+
+    /* =========================================
+       15. FORM
+    ========================================== */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        .8fr
+        1.2fr;
+
+      gap: 70px;
+
+      align-items: start;
+    }
+
+    .contact-info {
+      position: sticky;
+
+      top: 110px;
+    }
+
+    .contact-item {
+      display: flex;
+
+      gap: 18px;
+
+      padding: 22px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+
+      place-items: center;
+
+      background: rgba(255,90,22,.1);
+
+      color: var(--orange);
+
+      border-radius: 10px;
+
+      font-size: 18px;
+    }
+
+    .contact-item small {
+      display: block;
+
+      color: #777;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: .12em;
+    }
+
+    .contact-item strong {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 15px;
+    }
+
+    .form {
+      padding: 40px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 22px;
+    }
+
+    .form-title {
+      font-family: "Oswald", sans-serif;
+
+      font-size: 38px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #888;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+
+      border: 1px solid var(--line);
+
+      background: #0b0d0f;
+
+      color: white;
+
+      border-radius: 10px;
+
+      padding: 15px;
+
+      outline: none;
+
+      transition: .25s;
+    }
+
+    .field textarea {
+      min-height: 130px;
+
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--orange);
+
+      box-shadow:
+        0 0 0 3px rgba(255,90,22,.08);
+    }
+
+    .form-bottom {
+      margin-top: 20px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    .privacy {
+      color: #666;
+
+      font-size: 10px;
+
+      max-width: 300px;
+    }
+
+    .form-message {
+      display: none;
+
+      padding: 15px;
+
+      margin-top: 15px;
+
+      border-radius: 10px;
+
+      background: rgba(48,190,100,.1);
+
+      border: 1px solid rgba(48,190,100,.2);
+
+      color: #83e7aa;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================
+       16. WORKERS
+    ========================================== */
+
+    .workers {
+      background: #0d0f11;
+    }
+
+    .worker-box {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 60px;
+
+      padding: 60px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,90,22,.08),
+          rgba(255,255,255,.02)
+        );
+
+      border: 1px solid var(--line);
+
+      border-radius: 24px;
+    }
+
+    .worker-title {
+      font-family: "Oswald", sans-serif;
+
+      font-size: clamp(45px, 6vw, 80px);
+
+      line-height: .9;
+
+      text-transform: uppercase;
+    }
+
+    .worker-title span {
+      color: var(--orange);
+    }
+
+    .worker-text {
+      color: var(--muted);
+
+      margin-top: 25px;
+
+      max-width: 500px;
+    }
+
+    .worker-list {
+      margin-top: 30px;
+
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .worker-list div {
+      display: flex;
+
+      gap: 10px;
+
+      color: #ccc;
+
+      font-size: 13px;
+    }
+
+    .worker-form {
+      padding: 30px;
+
+      background: #0a0b0d;
+
+      border: 1px solid var(--line);
+
+      border-radius: 18px;
+    }
+
+
+    /* =========================================
+       17. FAQ
+    ========================================== */
+
+    .faq {
+      max-width: 900px;
+
+      margin:
+        55px auto 0;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-question {
+      width: 100%;
+
+      padding: 25px 0;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      background: none;
+
+      border: 0;
+
+      color: white;
+
+      text-align: left;
+
+      font-family: "Oswald", sans-serif;
+
+      text-transform: uppercase;
+
+      font-size: 23px;
+    }
+
+    .faq-plus {
+      color: var(--orange);
+
+      font-size: 30px;
+
+      transition: .3s;
+    }
+
+    .faq-answer {
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition: .4s;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .faq-answer-inner {
+      padding:
+        0 50px 25px 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-item.active .faq-plus {
+      transform: rotate(45deg);
+    }
+
+
+    /* =========================================
+       18. FOOTER
+    ========================================== */
+
+    footer {
+      padding: 70px 0 30px;
+
+      border-top: 1px solid var(--line);
+
+      background: #070809;
+    }
+
+    .footer-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 50px;
+
+      padding-bottom: 50px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-description {
+      color: #666;
+
+      margin-top: 18px;
+
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 70px;
+    }
+
+    .footer-column strong {
+      display: block;
+
+      font-size: 11px;
+
+      color: #777;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+
+      margin-bottom: 16px;
+    }
+
+    .footer-column a {
+      display: block;
+
+      color: #aaa;
+
+      font-size: 13px;
+
+      margin-bottom: 10px;
+
+      transition: .2s;
+    }
+
+    .footer-column a:hover {
+      color: var(--orange);
+    }
+
+    .footer-bottom {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding-top: 25px;
+
+      color: #555;
+
+      font-size: 11px;
+    }
+
+
+    /* =========================================
+       19. FLOATING BUTTONS
+    ========================================== */
+
+    .floating {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      z-index: 999;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+    .floating a {
+      width: 54px;
+      height: 54px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      color: #000;
+
+      font-size: 20px;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.4);
+
+      transition: .25s;
+    }
+
+    .floating a:hover {
+      transform: scale(1.1);
+    }
+
+
+    /* =========================================
+       20. SCROLL REVEAL
+    ========================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =========================================
+       21. MOBILE
+    ========================================== */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-phone {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .why-grid,
+      .contact-grid,
+      .worker-box {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        position: static;
+      }
+
+      .worker-box {
+        padding: 35px;
+      }
+
+      .project,
+      .project:nth-child(2),
+      .project:nth-child(3),
+      .project:nth-child(4) {
+        grid-column: span 6;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--container)
+          );
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        min-height: 820px;
+
+        padding-top: 110px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(8,9,10,.85),
+            rgba(8,9,10,.9)
+          ),
+          url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80")
+          center/cover;
+      }
+
+      .hero h1 {
+        font-size: 70px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .hero-stats {
+        margin-top: 50px;
+      }
+
+      .stat {
+        min-width: 130px;
+
+        margin-right: 15px;
+      }
+
+      .stat-number {
+        font-size: 30px;
+      }
+
+      .about-image {
+        min-height: 450px;
+      }
+
+      .services-head {
+        display: block;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 320px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project,
+      .project:nth-child(2),
+      .project:nth-child(3),
+      .project:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .project {
+        min-height: 320px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-numbers {
+        grid-template-columns: 1fr;
+      }
+
+      .form {
+        padding: 25px 18px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .worker-box {
+        padding: 25px 18px;
+      }
+
+      .worker-form {
+        padding: 20px;
+      }
+
+      .footer-links {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .floating {
+        right: 14px;
+        bottom: 14px;
+      }
+
+    }
+
+  </style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
+  <!-- =========================================
+       HEADER
+  ========================================== -->
 
-<header>
+  <header id="header">
 
-<div class="container nav">
+    <div class="container">
 
-<a href="#top" class="logo">
-СТАЛЬ<span>.</span>
-</a>
+      <nav class="nav">
 
-<nav>
-<ul>
+        <a
+          href="#top"
+          class="logo"
+        >
 
-<li>
-<a href="#services">Услуги</a>
-</li>
+          <span class="logo-mark">И</span>
 
-<li>
-<a href="#process">Как работаем</a>
-</li>
+          <span>ИСКРА</span>
 
-<li>
-<a href="#contact">Заявка</a>
-</li>
+        </a>
 
-<li>
-<a href="#workers">Сварщики</a>
-</li>
 
-</ul>
-</nav>
+        <div class="nav-links">
 
-<a href="#contact" class="nav-button">
-Оставить заявку
-</a>
+          <a href="#about">
+            О компании
+          </a>
 
-</div>
+          <a href="#services">
+            Услуги
+          </a>
 
-</header>
+          <a href="#projects">
+            Работы
+          </a>
 
+          <a href="#process">
+            Как работаем
+          </a>
 
+          <a href="#contacts">
+            Контакты
+          </a>
 
-<main id="top">
+        </div>
 
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
+        <!-- Телефон -->
+        <a
+          class="nav-phone"
+          href="tel:+996700000000"
+        >
+          <span>●</span>
 
-<section class="container hero">
+          +996 700 000 000
+        </a>
 
-<div>
 
-<span class="eyebrow">
-Сварка • Металлоконструкции • Кыргызстан
-</span>
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Открыть меню"
+        >
+          ☰
+        </button>
 
-<h1>
-МЕТАЛЛ,<br>
-КОТОРЫЙ<br>
-<span>ДЕРЖИТ.</span>
-</h1>
+      </nav>
 
-<p class="hero-description">
-Изготавливаем и устанавливаем сварные
-металлоконструкции под заказ.
-Ворота, заборы, навесы, лестницы,
-каркасы и нестандартные конструкции.
-</p>
+    </div>
 
-<div class="hero-buttons">
+  </header>
 
-<a href="#contact" class="button button-primary">
-Рассчитать стоимость
-</a>
 
-<a href="#services" class="button button-outline">
-Наши услуги
-</a>
+  <!-- =========================================
+       HERO
+  ========================================== -->
 
-</div>
+  <main id="top">
 
-</div>
+    <section class="hero">
 
+      <div class="container">
 
-<div class="hero-art">
+        <div class="hero-content reveal">
 
-<svg viewBox="0 0 400 400">
+          <div class="hero-label">
 
-<defs>
+            <span class="hero-label-dot"></span>
 
-<linearGradient
-id="steelGradient"
-x1="0"
-y1="0"
-x2="1"
-y2="1">
+            Производство • Монтаж • Сварка
 
-<stop
-offset="0%"
-stop-color="#ff7a1a"/>
+          </div>
 
-<stop
-offset="100%"
-stop-color="#c95010"/>
 
-</linearGradient>
+          <h1>
 
-</defs>
+            МЕТАЛЛ.<br>
 
-<rect
-x="45"
-y="45"
-width="310"
-height="310"
-rx="5"
-fill="none"
-stroke="#383d3f"
-stroke-width="2"
-/>
+            <strong>ТОЧНОСТЬ.</strong><br>
 
-<path
-d="M75 310 L200 75 L325 310"
-fill="none"
-stroke="url(#steelGradient)"
-stroke-width="9"
-stroke-linecap="round"
-stroke-linejoin="round"
-/>
+            РЕЗУЛЬТАТ.
 
-<line
-x1="115"
-y1="220"
-x2="285"
-y2="220"
-stroke="url(#steelGradient)"
-stroke-width="9"
-stroke-linecap="round"
-/>
+          </h1>
 
-<circle
-cx="200"
-cy="75"
-r="10"
-fill="#ff7a1a"
-/>
 
-</svg>
+          <p class="hero-subtitle">
 
-</div>
+            Изготавливаем металлоконструкции
+            под конкретную задачу — от небольшого
+            сварочного изделия до сложных
+            производственных конструкций.
 
-</section>
+          </p>
 
 
+          <div class="hero-buttons">
 
-<!-- =========================================================
-     SERVICES
-     ========================================================= -->
+            <a
+              href="#contacts"
+              class="btn btn-primary"
+            >
+              Рассчитать проект
+              →
+            </a>
 
-<section id="services" class="section services">
 
-<div class="container">
+            <a
+              href="#projects"
+              class="btn btn-outline"
+            >
+              Смотреть работы
+            </a>
 
-<div class="section-title">
+          </div>
 
-<span class="eyebrow">
-Что делаем
-</span>
 
-<h2>
-СВАРКА И МЕТАЛЛОКОНСТРУКЦИИ
-</h2>
+          <div class="hero-stats">
 
-<p class="muted">
-Работаем по размерам заказчика.
-Можно прислать фото, эскиз или просто
-описать задачу.
-</p>
+            <div class="stat">
 
-</div>
+              <div class="stat-number">
+                500+
+              </div>
 
+              <div class="stat-text">
+                Выполненных проектов
+              </div>
 
-<div class="service-list">
+            </div>
 
 
-<div class="service">
+            <div class="stat">
 
-<div class="service-number">01</div>
+              <div class="stat-number">
+                9
+              </div>
 
-<h3>Ворота</h3>
+              <div class="stat-text">
+                Регионов Кыргызстана
+              </div>
 
-<p>
-Распашные и откатные ворота,
-калитки, металлические каркасы
-и другие решения.
-</p>
+            </div>
 
-</div>
 
+            <div class="stat">
 
-<div class="service">
+              <div class="stat-number">
+                100%
+              </div>
 
-<div class="service-number">02</div>
+              <div class="stat-text">
+                Контроль качества
+              </div>
 
-<h3>Навесы</h3>
+            </div>
 
-<p>
-Навесы для автомобилей,
-двора, коммерческих объектов
-и других задач.
-</p>
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="service">
+    </section>
 
-<div class="service-number">03</div>
 
-<h3>Заборы</h3>
+    <!-- =========================================
+         RUNNING LINE
+    ========================================== -->
 
-<p>
-Металлические каркасы,
-секции, ограждения и калитки.
-</p>
+    <div class="marquee">
 
-</div>
+      <div class="marquee-track">
 
+        <div class="marquee-item">
+          СВАРКА <span>✦</span>
+          МЕТАЛЛОКОНСТРУКЦИИ <span>✦</span>
+          МОНТАЖ <span>✦</span>
+        </div>
 
-<div class="service">
+        <div class="marquee-item">
+          СВАРКА <span>✦</span>
+          МЕТАЛЛОКОНСТРУКЦИИ <span>✦</span>
+          МОНТАЖ <span>✦</span>
+        </div>
 
-<div class="service-number">04</div>
+        <div class="marquee-item">
+          СВАРКА <span>✦</span>
+          МЕТАЛЛОКОНСТРУКЦИИ <span>✦</span>
+          МОНТАЖ <span>✦</span>
+        </div>
 
-<h3>Лестницы</h3>
+      </div>
 
-<p>
-Металлические каркасы лестниц,
-площадки, перила и ограждения.
-</p>
+    </div>
 
-</div>
 
+    <!-- =========================================
+         ABOUT
+    ========================================== -->
 
-<div class="service">
+    <section
+      class="section"
+      id="about"
+    >
 
-<div class="service-number">05</div>
+      <div class="container">
 
-<h3>Каркасы</h3>
+        <div class="about-grid">
 
-<p>
-Сварные каркасы для помещений,
-бизнеса и частных объектов.
-</p>
+          <div class="about-image reveal">
 
-</div>
+            <div class="about-image-badge">
 
+              <strong>01</strong>
 
-<div class="service">
+              <span>
+                Один подрядчик —
+                весь проект
+              </span>
 
-<div class="service-number">06</div>
+            </div>
 
-<h3>Другое</h3>
+          </div>
 
-<p>
-Если вашей задачи нет в списке —
-просто опишите её в заявке.
-</p>
 
-</div>
+          <div class="reveal">
 
+            <div class="section-label">
+              О компании
+            </div>
 
-</div>
+            <h2 class="section-title">
+              МЕТАЛЛ,
+              КОТОРОМУ
+              МОЖНО
+              ДОВЕРЯТЬ.
+            </h2>
 
-</div>
+            <p class="section-description">
 
-</section>
+              Мы занимаемся сваркой и изготовлением
+              металлоконструкций для частных клиентов,
+              бизнеса и строительных проектов.
 
+            </p>
 
 
-<!-- =========================================================
-     ADVANTAGES
-     ========================================================= -->
+            <div class="about-list">
 
-<section class="section">
+              <div class="about-list-item">
 
-<div class="container">
+                <div class="check">
+                  ✓
+                </div>
 
-<div class="section-title">
+                <div>
 
-<span class="eyebrow">
-Почему СТАЛЬ
-</span>
+                  <strong>
+                    Изготовление под размер
+                  </strong>
 
-<h2>
-БЕЗ ЛИШНЕЙ СЛОЖНОСТИ
-</h2>
+                  <p>
+                    Не работаем по принципу
+                    «примерно подойдёт».
+                  </p>
 
-</div>
+                </div>
 
+              </div>
 
-<div class="advantages">
 
+              <div class="about-list-item">
 
-<div class="advantage">
+                <div class="check">
+                  ✓
+                </div>
 
-<div class="advantage-number">01</div>
+                <div>
 
-<h3>
-Под размер
-</h3>
+                  <strong>
+                    Материалы и производство
+                  </strong>
 
-<p>
-Изготавливаем конструкцию
-под конкретный объект.
-</p>
+                  <p>
+                    Подбираем решение под нагрузку,
+                    бюджет и условия эксплуатации.
+                  </p>
 
-</div>
+                </div>
 
+              </div>
 
-<div class="advantage">
 
-<div class="advantage-number">02</div>
+              <div class="about-list-item">
 
-<h3>
-Расчёт
-</h3>
+                <div class="check">
+                  ✓
+                </div>
 
-<p>
-Уточняем размеры, материалы,
-сроки и рассчитываем стоимость.
-</p>
+                <div>
 
-</div>
+                  <strong>
+                    Монтаж
+                  </strong>
 
+                  <p>
+                    При необходимости доставляем
+                    и устанавливаем конструкцию.
+                  </p>
 
-<div class="advantage">
+                </div>
 
-<div class="advantage-number">03</div>
+              </div>
 
-<h3>
-От заявки до монтажа
-</h3>
+            </div>
 
-<p>
-Изготовление, доставка
-и монтаж конструкции.
-</p>
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-</div>
+    </section>
 
-</div>
 
-</section>
+    <!-- =========================================
+         SERVICES
+    ========================================== -->
 
+    <section
+      class="section"
+      id="services"
+    >
 
+      <div class="container">
 
-<!-- =========================================================
-     PROCESS
-     ========================================================= -->
+        <div class="services-head reveal">
 
-<section id="process" class="section">
+          <div>
 
-<div class="container">
+            <div class="section-label">
+              Что делаем
+            </div>
 
-<div class="process-box">
+            <h2 class="section-title">
+              НАШИ
+              УСЛУГИ
+            </h2>
 
-<div class="process-header">
+          </div>
 
-<span class="eyebrow">
-Процесс
-</span>
+          <p class="section-description">
 
-<h2>
-ОТ ЗАЯВКИ ДО ГОТОВОЙ КОНСТРУКЦИИ
-</h2>
+            От простой сварочной работы
+            до полного изготовления
+            и монтажа металлоконструкции.
 
-</div>
+          </p>
 
+        </div>
 
-<div class="steps">
 
+        <div class="services-grid">
 
-<div class="step">
 
-<div class="step-number">01</div>
+          <!-- SERVICE 01 -->
 
-<h3>Заявка</h3>
+          <article class="service-card reveal">
 
-<p>
-Вы оставляете контакты
-и описание задачи.
-</p>
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-</div>
+            <div class="service-content">
 
+              <div class="service-number">
+                01 / 08
+              </div>
 
-<div class="step">
+              <h3 class="service-title">
+                Металлоконструкции
+              </h3>
 
-<div class="step-number">02</div>
+              <p class="service-description">
+                Каркасы, фермы, балки,
+                производственные конструкции.
+              </p>
 
-<h3>Расчёт</h3>
+            </div>
 
-<p>
-Уточняем размеры,
-материалы и сроки.
-</p>
+          </article>
 
-</div>
 
+          <!-- SERVICE 02 -->
 
-<div class="step">
+          <article class="service-card reveal">
 
-<div class="step-number">03</div>
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1590644365607-1c5a8b9d8a1f?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-<h3>Изготовление</h3>
+            <div class="service-content">
 
-<p>
-Изготавливаем конструкцию
-в сварочном цеху.
-</p>
+              <div class="service-number">
+                02 / 08
+              </div>
 
-</div>
+              <h3 class="service-title">
+                Навесы
+              </h3>
 
+              <p class="service-description">
+                Для автомобилей, дворов,
+                бизнеса и производства.
+              </p>
 
-<div class="step">
+            </div>
 
-<div class="step-number">04</div>
+          </article>
 
-<h3>Монтаж</h3>
 
-<p>
-Доставляем и устанавливаем
-конструкцию.
-</p>
+          <!-- SERVICE 03 -->
 
-</div>
+          <article class="service-card reveal">
 
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-</div>
+            <div class="service-content">
 
-</div>
+              <div class="service-number">
+                03 / 08
+              </div>
 
-</div>
+              <h3 class="service-title">
+                Лестницы
+              </h3>
 
-</section>
+              <p class="service-description">
+                Металлические лестницы,
+                перила и площадки.
+              </p>
 
+            </div>
 
+          </article>
 
-<!-- =========================================================
-     CLIENT FORM
-     ========================================================= -->
 
-<section id="contact" class="section contact">
+          <!-- SERVICE 04 -->
 
-<div class="container contact-grid">
+          <article class="service-card reveal">
 
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-<div class="contact-info">
+            <div class="service-content">
 
-<span class="eyebrow">
-Заказать работу
-</span>
+              <div class="service-number">
+                04 / 08
+              </div>
 
-<h2>
-РАССКАЖИТЕ,<br>
-ЧТО НУЖНО СВАРИТЬ
-</h2>
+              <h3 class="service-title">
+                Ворота
+              </h3>
 
-<p>
-Опишите задачу, укажите регион
-и оставьте любой удобный способ связи.
-Можно оставить телефон, Telegram
-или оба.
-</p>
+              <p class="service-description">
+                Распашные, откатные,
+                промышленные конструкции.
+              </p>
 
+            </div>
 
-<div class="contact-item">
+          </article>
 
-<small>Телефон</small>
 
-<strong>
-+996 ___ ___ ___
-</strong>
+          <!-- SERVICE 05 -->
 
-</div>
+          <article class="service-card reveal">
 
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-<div class="contact-item">
+            <div class="service-content">
 
-<small>Telegram</small>
+              <div class="service-number">
+                05 / 08
+              </div>
 
-<strong>
-@your_username
-</strong>
+              <h3 class="service-title">
+                Ограждения
+              </h3>
 
-</div>
+              <p class="service-description">
+                Для домов, предприятий,
+                лестниц и территорий.
+              </p>
 
+            </div>
 
-<div class="contact-item">
+          </article>
 
-<small>Работаем</small>
 
-<strong>
-Кыргызстан
-</strong>
+          <!-- SERVICE 06 -->
 
-</div>
+          <article class="service-card reveal">
 
-</div>
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
+            <div class="service-content">
 
+              <div class="service-number">
+                06 / 08
+              </div>
 
-<div class="form-card">
+              <h3 class="service-title">
+                Козырьки
+              </h3>
 
-<h3>
-ЗАЯВКА НА РАБОТУ
-</h3>
+              <p class="service-description">
+                Функциональные и
+                архитектурные решения.
+              </p>
 
-<p class="form-description">
-Оставьте контакты — свяжемся с вами
-для уточнения деталей.
-</p>
+            </div>
 
+          </article>
 
-<form id="leadForm">
 
+          <!-- SERVICE 07 -->
 
-<div>
+          <article class="service-card reveal">
 
-<label for="clientName">
-Ваше имя *
-</label>
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-<input
-id="clientName"
-name="name"
-type="text"
-placeholder="Например, Азамат"
-required
->
+            <div class="service-content">
 
-</div>
+              <div class="service-number">
+                07 / 08
+              </div>
 
+              <h3 class="service-title">
+                Сварка
+              </h3>
 
-<div class="form-row">
+              <p class="service-description">
+                Разовые и комплексные
+                сварочные работы.
+              </p>
 
-<div>
+            </div>
 
-<label for="clientPhone">
-Телефон *
-</label>
+          </article>
 
-<input
-id="clientPhone"
-name="phone"
-type="tel"
-placeholder="+996 ..."
-required
->
 
-</div>
+          <!-- SERVICE 08 -->
 
+          <article class="service-card reveal">
 
-<div>
+            <div
+              class="service-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80');
+              "
+            ></div>
 
-<label for="clientTelegram">
-Telegram
-</label>
+            <div class="service-content">
 
-<input
-id="clientTelegram"
-name="telegram"
-type="text"
-placeholder="@username"
->
+              <div class="service-number">
+                08 / 08
+              </div>
 
-</div>
+              <h3 class="service-title">
+                Под заказ
+              </h3>
 
-</div>
+              <p class="service-description">
+                Есть задача, но нет
+                готового решения? Разработаем.
+              </p>
 
+            </div>
 
-<div>
+          </article>
 
-<label for="clientRegion">
-Регион *
-</label>
 
-<select
-id="clientRegion"
-name="region"
-required
->
+        </div>
 
-<option value="">
-Выберите регион
-</option>
+      </div>
 
-<option>Бишкек</option>
-<option>Ош</option>
-<option>Чуйская область</option>
-<option>Ошская область</option>
-<option>Иссык-Кульская область</option>
-<option>Нарынская область</option>
-<option>Таласская область</option>
-<option>Джалал-Абадская область</option>
-<option>Баткенская область</option>
+    </section>
 
-</select>
 
-</div>
+    <!-- =========================================
+         PROJECTS
+    ========================================== -->
 
+    <section
+      class="section projects"
+      id="projects"
+    >
 
-<div>
+      <div class="container">
 
-<label for="service">
-Что нужно сделать *
-</label>
+        <div class="reveal">
 
-<select
-id="service"
-name="service"
-required
->
+          <div class="section-label">
+            Наши работы
+          </div>
 
-<option value="">
-Выберите услугу
-</option>
+          <h2 class="section-title">
+            СОЗДАЁМ
+            НАДОЛГО.
+          </h2>
 
-<option>Сварка</option>
-<option>Металлоконструкция</option>
-<option>Ворота</option>
-<option>Навес</option>
-<option>Забор</option>
-<option>Лестница</option>
-<option>Каркас</option>
-<option>Ремонт / сварочные работы</option>
-<option>Другое</option>
+          <p class="section-description">
+            Здесь позже можно разместить
+            реальные фотографии ваших проектов.
+          </p>
 
-</select>
+        </div>
 
-</div>
 
+        <div class="projects-grid">
 
-<div>
 
-<label for="message">
-Опишите задачу
-</label>
+          <article class="project reveal">
 
-<textarea
-id="message"
-name="message"
-placeholder="Размеры, материал, сроки, адрес — всё, что знаете..."
-></textarea>
+            <div
+              class="project-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85');
+              "
+            ></div>
 
-</div>
+            <div class="project-info">
 
+              <div class="project-tag">
+                Частный объект
+              </div>
 
-<div>
+              <div class="project-name">
+                Навес
+              </div>
 
-<label for="source">
-Откуда вы о нас узнали? *
-</label>
+            </div>
 
-<select
-id="source"
-name="source"
-required
->
+          </article>
 
-<option value="">
-Выберите источник
-</option>
 
-<option>Instagram</option>
-<option>WhatsApp группа</option>
-<option>Telegram группа</option>
-<option>Lalafo</option>
-<option>Рекомендация / сарафанное радио</option>
-<option>Поиск в интернете</option>
-<option>Увидел рекламу</option>
-<option>Другое</option>
+          <article class="project reveal">
 
-</select>
+            <div
+              class="project-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=85');
+              "
+            ></div>
 
-</div>
+            <div class="project-info">
 
+              <div class="project-tag">
+                Производство
+              </div>
 
-<label class="checkbox">
+              <div class="project-name">
+                Металлокаркас
+              </div>
 
-<input
-type="checkbox"
-required
->
+            </div>
 
-<span>
-Согласен(на) на обработку данных
-в соответствии с
-<a href="#privacy">
-политикой конфиденциальности
-</a>.
-</span>
+          </article>
 
-</label>
 
+          <article class="project reveal">
 
-<button
-type="submit"
-class="button button-primary"
->
-ОТПРАВИТЬ ЗАЯВКУ
-</button>
+            <div
+              class="project-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1400&q=85');
+              "
+            ></div>
 
+            <div class="project-info">
 
-<div
-id="leadStatus"
-class="form-status"
-></div>
+              <div class="project-tag">
+                Металлообработка
+              </div>
 
+              <div class="project-name">
+                Конструкция
+              </div>
 
-</form>
+            </div>
 
-</div>
+          </article>
 
-</div>
 
-</section>
+          <article class="project reveal">
 
+            <div
+              class="project-bg"
+              style="
+                background-image:
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85');
+              "
+            ></div>
 
+            <div class="project-info">
 
-<!-- =========================================================
-     НУЖНЫ СВАРЩИКИ
-     ОТДЕЛЬНАЯ ФОРМА
-     ========================================================= -->
+              <div class="project-tag">
+                Монтаж
+              </div>
 
-<section id="workers" class="section workers">
+              <div class="project-name">
+                Каркас
+              </div>
 
-<div class="container workers-grid">
+            </div>
 
+          </article>
 
-<div>
 
-<span class="eyebrow">
-Работа
-</span>
+        </div>
 
-<h2>
-НУЖНЫ<br>
-СВАРЩИКИ?
-</h2>
+      </div>
 
-<p class="workers-description">
-Ищем сварщиков и специалистов
-для работы с металлоконструкциями.
-Если есть опыт — оставьте анкету,
-и мы свяжемся с вами.
-</p>
+    </section>
 
-<a
-href="#workerForm"
-class="button button-primary"
->
-ОСТАВИТЬ АНКЕТУ
-</a>
 
-</div>
+    <!-- =========================================
+         PROCESS
+    ========================================== -->
 
+    <section
+      class="section"
+      id="process"
+    >
 
+      <div class="container">
 
-<div class="worker-form">
+        <div class="reveal">
 
-<form id="workerForm">
+          <div class="section-label">
+            Процесс
+          </div>
 
+          <h2 class="section-title">
+            ОТ ЗАДАЧИ
+            ДО ГОТОВОЙ
+            КОНСТРУКЦИИ.
+          </h2>
 
-<div>
+        </div>
 
-<label for="workerName">
-Имя *
-</label>
 
-<input
-id="workerName"
-name="name"
-type="text"
-placeholder="Ваше имя"
-required
->
+        <div class="process-grid">
 
-</div>
 
+          <div class="process-item reveal">
 
-<div class="form-row">
+            <div class="process-number">
+              01
+            </div>
 
-<div>
+            <h3 class="process-title">
+              Заявка
+            </h3>
 
-<label for="workerPhone">
-Телефон *
-</label>
+            <p class="process-text">
+              Вы рассказываете о задаче
+              и отправляете размеры,
+              фотографии или чертёж.
+            </p>
 
-<input
-id="workerPhone"
-name="phone"
-type="tel"
-placeholder="+996 ..."
-required
->
+          </div>
 
-</div>
 
+          <div class="process-item reveal">
 
-<div>
+            <div class="process-number">
+              02
+            </div>
 
-<label for="workerTelegram">
-Telegram
-</label>
+            <h3 class="process-title">
+              Расчёт
+            </h3>
 
-<input
-id="workerTelegram"
-name="telegram"
-type="text"
-placeholder="@username"
->
+            <p class="process-text">
+              Определяем материалы,
+              объём работ, сроки
+              и стоимость.
+            </p>
 
-</div>
+          </div>
 
-</div>
 
+          <div class="process-item reveal">
 
-<div>
+            <div class="process-number">
+              03
+            </div>
 
-<label for="workerRegion">
-Регион *
-</label>
+            <h3 class="process-title">
+              Производство
+            </h3>
 
-<select
-id="workerRegion"
-name="region"
-required
->
+            <p class="process-text">
+              Изготавливаем конструкцию
+              и контролируем качество
+              на каждом этапе.
+            </p>
 
-<option value="">
-Выберите регион
-</option>
+          </div>
 
-<option>Бишкек</option>
-<option>Ош</option>
-<option>Чуйская область</option>
-<option>Ошская область</option>
-<option>Иссык-Кульская область</option>
-<option>Нарынская область</option>
-<option>Таласская область</option>
-<option>Джалал-Абадская область</option>
-<option>Баткенская область</option>
 
-</select>
+          <div class="process-item reveal">
 
-</div>
+            <div class="process-number">
+              04
+            </div>
 
+            <h3 class="process-title">
+              Монтаж
+            </h3>
 
-<div>
+            <p class="process-text">
+              Доставляем объект
+              и выполняем монтаж,
+              если он входит в задачу.
+            </p>
 
-<label for="workerExperience">
-Опыт работы *
-</label>
+          </div>
 
-<select
-id="workerExperience"
-name="experience"
-required
->
 
-<option value="">
-Выберите
-</option>
+        </div>
 
-<option>Без опыта</option>
-<option>До 1 года</option>
-<option>1–3 года</option>
-<option>3–5 лет</option>
-<option>Более 5 лет</option>
+      </div>
 
-</select>
+    </section>
 
-</div>
 
+    <!-- =========================================
+         WHY US
+    ========================================== -->
 
-<div>
+    <section class="section why">
 
-<label for="workerSpecialization">
-Специализация
-</label>
+      <div class="container">
 
-<input
-id="workerSpecialization"
-name="specialization"
-type="text"
-placeholder="Например: электросварка, полуавтомат..."
->
+        <div class="why-grid">
 
-</div>
+          <div class="reveal">
 
+            <div class="section-label">
+              Почему мы
+            </div>
 
-<div>
+            <h2 class="section-title">
+              НЕ ПРОСТО
+              СВАРИВАЕМ.
+              МЫ РЕШАЕМ
+              ЗАДАЧУ.
+            </h2>
 
-<label for="workerTools">
-Свой инструмент
-</label>
+            <p class="section-description">
 
-<select
-id="workerTools"
-name="tools"
->
+              Хорошая металлоконструкция —
+              это не только сварные швы.
+              Важны расчёт, материалы,
+              геометрия, подготовка,
+              производство и монтаж.
 
-<option>Есть свой инструмент</option>
-<option>Нет своего инструмента</option>
-<option>Частично есть</option>
+            </p>
 
-</select>
+          </div>
 
-</div>
 
+          <div class="why-numbers reveal">
 
-<div>
+            <div class="why-number">
 
-<label for="workerComment">
-Комментарий
-</label>
+              <strong>
+                01
+              </strong>
 
-<textarea
-id="workerComment"
-name="comment"
-placeholder="Расскажите немного о себе..."
-></textarea>
+              <span>
+                Точность
+              </span>
 
-</div>
+            </div>
 
 
-<button
-type="submit"
-class="button button-primary"
->
-ОТПРАВИТЬ АНКЕТУ
-</button>
+            <div class="why-number">
 
+              <strong>
+                02
+              </strong>
 
-<div
-id="workerStatus"
-class="form-status"
-></div>
+              <span>
+                Надёжность
+              </span>
 
+            </div>
 
-</form>
 
-</div>
+            <div class="why-number">
 
-</div>
+              <strong>
+                03
+              </strong>
 
-</section>
+              <span>
+                Сроки
+              </span>
 
+            </div>
 
 
-<!-- =========================================================
-     PRIVACY
-     ========================================================= -->
+            <div class="why-number">
 
-<section id="privacy" class="section privacy">
+              <strong>
+                04
+              </strong>
 
-<div class="container privacy-content">
+              <span>
+                Контроль
+              </span>
 
-<span class="eyebrow">
-Документы
-</span>
+            </div>
 
-<h2>
-ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
-</h2>
+          </div>
 
-<p class="muted">
-Последнее обновление: укажите дату публикации.
-</p>
+        </div>
 
+      </div>
 
-<h3>
-Какие данные собираются
-</h3>
+    </section>
 
-<p>
-При отправке заявки сайт может получать имя,
-номер телефона, Telegram, регион,
-выбранную услугу и описание задачи.
-</p>
 
+    <!-- =========================================
+         CTA
+    ========================================== -->
 
-<h3>
-Зачем используются данные
-</h3>
+    <section class="cta">
 
-<p>
-Данные используются для связи с клиентом,
-уточнения задачи, расчёта стоимости
-и обработки заявки.
-</p>
+      <div class="container">
 
+        <div class="cta-inner">
 
-<h3>
-Заявки работников
-</h3>
+          <div>
 
-<p>
-Данные из формы «Нужны сварщики»
-используются для связи с кандидатами
-по вопросам работы.
-</p>
+            <h2 class="cta-title">
+              ЕСТЬ
+              ЗАДАЧА?
+            </h2>
 
+            <p class="cta-text">
 
-<h3>
-Хранение
-</h3>
+              Отправьте нам описание,
+              фотографии или чертёж.
+              Предварительно оценим
+              возможность изготовления
+              и свяжемся с вами.
 
-<p>
-После подключения Apps Script данные могут
-передаваться в Google Sheets, Telegram
-и Bitrix24 в соответствии с настройками
-владельца сайта.
-</p>
+            </p>
 
+          </div>
 
-<h3>
-Удаление данных
-</h3>
 
-<p>
-Для запроса на удаление данных пользователь
-может обратиться по контактам,
-указанным на сайте.
-</p>
+          <a
+            href="#contacts"
+            class="btn btn-primary"
+          >
+            Получить расчёт →
+          </a>
 
-</div>
+        </div>
 
-</section>
+      </div>
 
+    </section>
 
 
-</main>
+    <!-- =========================================
+         CONTACT FORM
+    ========================================== -->
 
+    <section
+      class="section"
+      id="contacts"
+    >
 
+      <div class="container">
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+        <div class="contact-grid">
 
-<footer>
 
-<div class="container footer-content">
+          <!-- CONTACT INFO -->
 
-<div>
-© <span id="year"></span>
-СТАЛЬ — сварка и металлоконструкции
-</div>
+          <div class="contact-info reveal">
 
-<a href="#privacy">
-Политика конфиденциальности
-</a>
+            <div class="section-label">
+              Связаться
+            </div>
 
-</div>
+            <h2 class="section-title">
+              РАССКАЖИТЕ
+              О ПРОЕКТЕ.
+            </h2>
 
-</footer>
+            <p class="section-description">
 
+              Заполните форму.
+              Чем больше информации
+              вы укажете, тем быстрее
+              сможем оценить задачу.
 
+            </p>
 
-<!-- =========================================================
-     МОБИЛЬНАЯ КНОПКА
-     ========================================================= -->
 
-<a
-href="#contact"
-class="mobile-cta"
->
-ОСТАВИТЬ ЗАЯВКУ
-</a>
+            <div class="contact-item">
 
+              <div class="contact-icon">
+                ☎
+              </div>
 
+              <div>
 
-<script>
+                <small>
+                  Телефон
+                </small>
 
-/* =========================================================
-   =========================================================
-   НАСТРОЙКИ JAVASCRIPT
-   =========================================================
-   ========================================================= */
+                <strong>
+                  +996 700 000 000
+                </strong>
 
+              </div>
 
-/*
-  ВАЖНО!
+            </div>
 
-  Сюда позже вставляем URL опубликованного
-  Google Apps Script.
 
-  Пока оставляем как есть.
-*/
+            <div class="contact-item">
 
-const APPS_SCRIPT_URL =
-"ВСТАВЬТЕ_СЮДА_URL_ВАШЕГО_APPS_SCRIPT_WEB_APP";
+              <div class="contact-icon">
+                TG
+              </div>
 
+              <div>
 
+                <small>
+                  Telegram
+                </small>
 
-/* =========================================================
-   ГОД В FOOTER
-   ========================================================= */
+                <strong>
+                  @your_username
+                </strong>
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
+              </div>
 
+            </div>
 
 
-/* =========================================================
-   UTM-АНАЛИТИКА
+            <div class="contact-item">
 
-   Пример рекламной ссылки:
+              <div class="contact-icon">
+                WA
+              </div>
 
-   https://site.kg/?utm_source=instagram
-   &utm_medium=cpc
-   &utm_campaign=vorota
+              <div>
 
-   Мы сможем узнать:
-   - откуда пришёл человек;
-   - какая реклама;
-   - какая кампания.
-   ========================================================= */
+                <small>
+                  WhatsApp
+                </small>
 
-function getUTMData(){
+                <strong>
+                  +996 700 000 000
+                </strong>
 
-  const params =
-    new URLSearchParams(
-      window.location.search
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+                KG
+              </div>
+
+              <div>
+
+                <small>
+                  Работаем
+                </small>
+
+                <strong>
+                  Кыргызстан
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- LEAD FORM -->
+
+          <div class="form reveal">
+
+            <h3 class="form-title">
+              Заявка на расчёт
+            </h3>
+
+
+            <form id="leadForm">
+
+              <div class="form-grid">
+
+
+                <div class="field">
+
+                  <label>
+                    Ваше имя
+                  </label>
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Например: Азамат"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Телефон
+                  </label>
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+996 ..."
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Telegram
+                  </label>
+
+                  <input
+                    type="text"
+                    name="telegram"
+                    placeholder="@username"
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Регион
+                  </label>
+
+                  <select
+                    name="region"
+                    required
+                  >
+
+                    <option value="">
+                      Выберите регион
+                    </option>
+
+                    <option>
+                      Бишкек
+                    </option>
+
+                    <option>
+                      Ош
+                    </option>
+
+                    <option>
+                      Чуйская область
+                    </option>
+
+                    <option>
+                      Ошская область
+                    </option>
+
+                    <option>
+                      Иссык-Кульская область
+                    </option>
+
+                    <option>
+                      Нарынская область
+                    </option>
+
+                    <option>
+                      Таласская область
+                    </option>
+
+                    <option>
+                      Джалал-Абадская область
+                    </option>
+
+                    <option>
+                      Баткенская область
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label>
+                    Что нужно сделать?
+                  </label>
+
+                  <select
+                    name="service"
+                    required
+                  >
+
+                    <option value="">
+                      Выберите услугу
+                    </option>
+
+                    <option>
+                      Металлоконструкция
+                    </option>
+
+                    <option>
+                      Навес
+                    </option>
+
+                    <option>
+                      Лестница
+                    </option>
+
+                    <option>
+                      Ворота
+                    </option>
+
+                    <option>
+                      Ограждение
+                    </option>
+
+                    <option>
+                      Козырёк
+                    </option>
+
+                    <option>
+                      Сварочные работы
+                    </option>
+
+                    <option>
+                      Другое
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label>
+                    Опишите задачу
+                  </label>
+
+                  <textarea
+                    name="message"
+                    placeholder="Например: нужен навес 6×8 метров. Есть фотографии места..."
+                  ></textarea>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Источник
+                  </label>
+
+                  <select
+                    name="source"
+                  >
+
+                    <option>
+                      Сайт
+                    </option>
+
+                    <option>
+                      Instagram
+                    </option>
+
+                    <option>
+                      WhatsApp группа
+                    </option>
+
+                    <option>
+                      Telegram группа
+                    </option>
+
+                    <option>
+                      Lalafo
+                    </option>
+
+                    <option>
+                      Рекомендация
+                    </option>
+
+                    <option>
+                      Поиск
+                    </option>
+
+                    <option>
+                      Реклама
+                    </option>
+
+                    <option>
+                      Другое
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Когда связаться?
+                  </label>
+
+                  <select
+                    name="callback"
+                  >
+
+                    <option>
+                      Как можно скорее
+                    </option>
+
+                    <option>
+                      Сегодня
+                    </option>
+
+                    <option>
+                      Завтра
+                    </option>
+
+                    <option>
+                      В удобное время
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="form-bottom">
+
+                <p class="privacy">
+
+                  Нажимая кнопку, вы соглашаетесь
+                  на обработку предоставленных
+                  данных для связи по заявке.
+
+                </p>
+
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Отправить заявку →
+                </button>
+
+              </div>
+
+
+              <div
+                class="form-message"
+                id="leadMessage"
+              >
+                Заявка отправлена.
+                Мы свяжемся с вами.
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WORKERS
+    ========================================== -->
+
+    <section
+      class="section workers"
+      id="workers"
+    >
+
+      <div class="container">
+
+        <div class="worker-box">
+
+
+          <div class="reveal">
+
+            <div class="section-label">
+              Для специалистов
+            </div>
+
+            <h2 class="worker-title">
+
+              НУЖНЫ
+              <span>СВАРЩИКИ?</span>
+
+            </h2>
+
+            <p class="worker-text">
+
+              Ищем сварщиков и специалистов
+              по металлоконструкциям для
+              постоянной и проектной работы.
+
+            </p>
+
+
+            <div class="worker-list">
+
+              <div>
+                <span>✓</span>
+                Сварщики
+              </div>
+
+              <div>
+                <span>✓</span>
+                Монтажники
+              </div>
+
+              <div>
+                <span>✓</span>
+                Слесари
+              </div>
+
+              <div>
+                <span>✓</span>
+                Бригады
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- WORKER FORM -->
+
+          <div class="worker-form reveal">
+
+            <form id="workerForm">
+
+              <div class="form-grid">
+
+
+                <div class="field">
+
+                  <label>
+                    Имя
+                  </label>
+
+                  <input
+                    name="name"
+                    placeholder="Ваше имя"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Телефон
+                  </label>
+
+                  <input
+                    name="phone"
+                    placeholder="+996 ..."
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Telegram
+                  </label>
+
+                  <input
+                    name="telegram"
+                    placeholder="@username"
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Регион
+                  </label>
+
+                  <select
+                    name="region"
+                  >
+
+                    <option>
+                      Бишкек
+                    </option>
+
+                    <option>
+                      Ош
+                    </option>
+
+                    <option>
+                      Чуйская область
+                    </option>
+
+                    <option>
+                      Ошская область
+                    </option>
+
+                    <option>
+                      Иссык-Кульская область
+                    </option>
+
+                    <option>
+                      Нарынская область
+                    </option>
+
+                    <option>
+                      Таласская область
+                    </option>
+
+                    <option>
+                      Джалал-Абадская область
+                    </option>
+
+                    <option>
+                      Баткенская область
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Опыт
+                  </label>
+
+                  <select
+                    name="experience"
+                  >
+
+                    <option>
+                      Без опыта
+                    </option>
+
+                    <option>
+                      До 1 года
+                    </option>
+
+                    <option>
+                      1–3 года
+                    </option>
+
+                    <option>
+                      3–5 лет
+                    </option>
+
+                    <option>
+                      Более 5 лет
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Специализация
+                  </label>
+
+                  <input
+                    name="specialization"
+                    placeholder="MMA / MIG / TIG / монтаж"
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Инструмент
+                  </label>
+
+                  <select
+                    name="tools"
+                  >
+
+                    <option>
+                      Есть свой инструмент
+                    </option>
+
+                    <option>
+                      Инструмента нет
+                    </option>
+
+                    <option>
+                      Частично есть
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Тип работы
+                  </label>
+
+                  <select
+                    name="workType"
+                  >
+
+                    <option>
+                      Постоянная
+                    </option>
+
+                    <option>
+                      Проектная
+                    </option>
+
+                    <option>
+                      Бригада
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label>
+                    Дополнительно
+                  </label>
+
+                  <textarea
+                    name="message"
+                    placeholder="Расскажите о себе..."
+                  ></textarea>
+
+                </div>
+
+
+              </div>
+
+
+              <div
+                class="form-bottom"
+                style="margin-top:20px;"
+              >
+
+                <p class="privacy">
+                  Данные используются только
+                  для связи по вакансии.
+                </p>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Отправить →
+                </button>
+
+              </div>
+
+
+              <div
+                class="form-message"
+                id="workerMessage"
+              >
+                Анкета отправлена.
+                Спасибо!
+              </div>
+
+            </form>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FAQ
+    ========================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="reveal"
+          style="text-align:center;"
+        >
+
+          <div class="section-label">
+            FAQ
+          </div>
+
+          <h2 class="section-title">
+            ЧАСТЫЕ
+            ВОПРОСЫ
+          </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Можно ли сделать по фотографии?
+
+              <span class="faq-plus">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Да. Для предварительной оценки
+                можно отправить фотографию,
+                размеры и описание задачи.
+                Если понадобится чертёж —
+                обсудим отдельно.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Вы работаете с материалом заказчика?
+
+              <span class="faq-plus">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Возможность работы с материалом
+                заказчика зависит от конкретной
+                конструкции и состояния материала.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Делаете ли монтаж?
+
+              <span class="faq-plus">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Да, если монтаж необходим
+                для конкретного проекта,
+                его можно включить в расчёт.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Работаете только в Бишкеке?
+
+              <span class="faq-plus">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Оставьте заявку и укажите регион.
+                Возможность выполнения работ
+                уточняется индивидуально.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="#top"
+            class="logo"
+          >
+
+            <span class="logo-mark">
+              И
+            </span>
+
+            <span>
+              ИСКРА
+            </span>
+
+          </a>
+
+
+          <p class="footer-description">
+
+            Сварка и металлоконструкции.
+            Проектирование, производство
+            и монтаж.
+
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+          <div class="footer-column">
+
+            <strong>
+              Навигация
+            </strong>
+
+            <a href="#about">
+              О компании
+            </a>
+
+            <a href="#services">
+              Услуги
+            </a>
+
+            <a href="#projects">
+              Работы
+            </a>
+
+            <a href="#contacts">
+              Контакты
+            </a>
+
+          </div>
+
+
+          <div class="footer-column">
+
+            <strong>
+              Контакты
+            </strong>
+
+            <a href="tel:+996700000000">
+              +996 700 000 000
+            </a>
+
+            <a href="#">
+              Telegram
+            </a>
+
+            <a href="#">
+              WhatsApp
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="year"></span> ИСКРА
+        </span>
+
+        <span>
+          Сварка • Металл • Конструкции
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================
+       FLOATING CONTACT BUTTONS
+  ========================================== -->
+
+  <div class="floating">
+
+    <a
+      href="https://t.me/your_username"
+      target="_blank"
+      aria-label="Telegram"
+    >
+      TG
+    </a>
+
+    <a
+      href="https://wa.me/996700000000"
+      target="_blank"
+      aria-label="WhatsApp"
+    >
+      WA
+    </a>
+
+  </div>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script>
+
+    /*
+    ==========================================================
+      НАСТРОЙКИ САЙТА
+    ==========================================================
+
+      ЗДЕСЬ МЫ ПОТОМ ПОДКЛЮЧИМ:
+
+      1. Telegram Bot
+      2. Google Sheets
+      3. Bitrix24
+
+      Пока можно оставить как есть.
+
+    ==========================================================
+    */
+
+
+    const CONFIG = {
+
+      /*
+        URL Google Apps Script.
+
+        После создания Apps Script
+        вставишь сюда URL.
+
+        Например:
+
+        https://script.google.com/macros/s/XXXX/exec
+      */
+
+      APPS_SCRIPT_URL:
+        "",
+
+
+      /*
+        Telegram username
+      */
+
+      TELEGRAM:
+        "your_username",
+
+
+      /*
+        WhatsApp номер.
+
+        Писать БЕЗ плюса и пробелов.
+
+        Например:
+
+        996700000000
+      */
+
+      WHATSAPP:
+        "996700000000"
+
+    };
+
+
+    /* =========================================
+       YEAR
+    ========================================== */
+
+    document.getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+
+    /* =========================================
+       HEADER SCROLL
+    ========================================== */
+
+    const header =
+      document.getElementById("header");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 40) {
+
+          header.classList.add("scrolled");
+
+        } else {
+
+          header.classList.remove("scrolled");
+
+        }
+
+      }
     );
 
-  return {
 
-    utm_source:
-      params.get("utm_source") || "",
+    /* =========================================
+       MOBILE MENU
+    ========================================== */
 
-    utm_medium:
-      params.get("utm_medium") || "",
-
-    utm_campaign:
-      params.get("utm_campaign") || "",
-
-    utm_content:
-      params.get("utm_content") || "",
-
-    utm_term:
-      params.get("utm_term") || ""
-
-  };
-
-}
+    const menuButton =
+      document.getElementById("menuButton");
 
 
+    const navLinks =
+      document.querySelector(".nav-links");
 
-/* =========================================================
-   СОХРАНЯЕМ UTM
-   ========================================================= */
 
-function saveUTM(){
+    menuButton.addEventListener(
+      "click",
+      () => {
 
-  const data =
-    getUTMData();
+        const isOpen =
+          navLinks.style.display === "flex";
 
-  const hasData =
-    Object.values(data)
-      .some(value => value !== "");
 
-  if(hasData){
+        if (isOpen) {
 
-    localStorage.setItem(
-      "steel_utm",
-      JSON.stringify(data)
+          navLinks.style.display =
+            "";
+
+        } else {
+
+          navLinks.style.display =
+            "flex";
+
+          navLinks.style.position =
+            "absolute";
+
+          navLinks.style.top =
+            "84px";
+
+          navLinks.style.left =
+            "14px";
+
+          navLinks.style.right =
+            "14px";
+
+          navLinks.style.flexDirection =
+            "column";
+
+          navLinks.style.alignItems =
+            "stretch";
+
+          navLinks.style.padding =
+            "20px";
+
+          navLinks.style.background =
+            "rgba(10,11,12,.98)";
+
+          navLinks.style.border =
+            "1px solid rgba(255,255,255,.1)";
+
+          navLinks.style.borderRadius =
+            "14px";
+
+        }
+
+      }
     );
 
-  }
 
-}
+    /*
+      При нажатии на ссылку
+      закрываем мобильное меню.
+    */
 
+    document.querySelectorAll(
+      ".nav-links a"
+    ).forEach(
+      link => {
 
-saveUTM();
+        link.addEventListener(
+          "click",
+          () => {
 
+            if (
+              window.innerWidth <= 1000
+            ) {
 
+              navLinks.style.display =
+                "";
 
-/* =========================================================
-   ПОЛУЧАЕМ СОХРАНЁННЫЕ UTM
-   ========================================================= */
+            }
 
-function getSavedUTM(){
+          }
+        );
 
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        "steel_utm"
-      )
-    ) || {};
-
-  }catch(error){
-
-    return {};
-
-  }
-
-}
-
-
-
-/* =========================================================
-   ОТПРАВКА ДАННЫХ В APPS SCRIPT
-   ========================================================= */
-
-async function sendToAppsScript(data){
-
-  /*
-    Если URL ещё не установлен,
-    показываем понятную ошибку.
-  */
-
-  if(
-    !APPS_SCRIPT_URL ||
-    APPS_SCRIPT_URL.includes("ВСТАВЬТЕ")
-  ){
-
-    throw new Error(
-      "URL Apps Script не установлен"
+      }
     );
 
-  }
+
+    /* =========================================
+       SCROLL REVEAL
+    ========================================== */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList
+                  .add("visible");
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: .12
+        }
+      );
 
 
-  /*
-    Добавляем к заявке технические данные.
-  */
+    document
+      .querySelectorAll(".reveal")
+      .forEach(
+        element => {
 
-  const finalData = {
+          observer.observe(element);
 
-    ...data,
-
-    url:
-      window.location.href,
-
-    page:
-      window.location.pathname,
-
-    referrer:
-      document.referrer || "",
-
-    timestamp:
-      new Date().toISOString(),
-
-    utm:
-      getSavedUTM()
-
-  };
+        }
+      );
 
 
-  /*
-    Отправляем POST-запрос.
+    /* =========================================
+       FAQ
+    ========================================== */
 
-    Apps Script далее сможет:
-    1. записать в Google Sheets;
-    2. отправить Telegram;
-    3. отправить в Bitrix24.
-  */
+    document
+      .querySelectorAll(".faq-question")
+      .forEach(
+        button => {
 
-  await fetch(
-    APPS_SCRIPT_URL,
-    {
+          button.addEventListener(
+            "click",
+            () => {
 
-      method:"POST",
+              const item =
+                button.parentElement;
 
-      mode:"no-cors",
 
-      headers:{
-        "Content-Type":
-        "text/plain;charset=utf-8"
-      },
+              /*
+                Закрываем остальные FAQ
+              */
 
-      body:
-        JSON.stringify(finalData)
+              document
+                .querySelectorAll(
+                  ".faq-item"
+                )
+                .forEach(
+                  other => {
+
+                    if (
+                      other !== item
+                    ) {
+
+                      other.classList
+                        .remove("active");
+
+                    }
+
+                  }
+                );
+
+
+              /*
+                Открываем текущий
+              */
+
+              item.classList
+                .toggle("active");
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       UTM ANALYTICS
+    ========================================== */
+
+    /*
+      Сохраняем рекламные метки.
+
+      Например:
+
+      ?utm_source=instagram
+      &utm_medium=paid
+      &utm_campaign=summer
+
+    */
+
+    function getUTM() {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
+
+
+      return {
+
+        utm_source:
+          params.get("utm_source") || "",
+
+        utm_medium:
+          params.get("utm_medium") || "",
+
+        utm_campaign:
+          params.get("utm_campaign") || "",
+
+        utm_content:
+          params.get("utm_content") || "",
+
+        utm_term:
+          params.get("utm_term") || ""
+
+      };
 
     }
-  );
-
-}
 
 
+    /*
+      Сохраняем UTM в localStorage,
+      чтобы человек мог перейти
+      по сайту и данные не потерялись.
+    */
 
-/* =========================================================
-   КЛИЕНТСКАЯ ЗАЯВКА
-   ========================================================= */
-
-const leadForm =
-document.getElementById(
-  "leadForm"
-);
-
-const leadStatus =
-document.getElementById(
-  "leadStatus"
-);
+    const currentUTM =
+      getUTM();
 
 
-leadForm.addEventListener(
-"submit",
-async function(event){
+    if (
+      Object.values(currentUTM)
+        .some(value => value)
+    ) {
 
-  event.preventDefault();
+      localStorage.setItem(
+        "iskra_utm",
+        JSON.stringify(currentUTM)
+      );
+
+    }
 
 
-  leadStatus.textContent =
-  "Отправляем заявку...";
+    function getSavedUTM() {
 
-  leadStatus.className =
-  "form-status";
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "iskra_utm"
+          )
+        ) || {};
+
+      } catch {
+
+        return {};
+
+      }
+
+    }
 
 
-  /*
-    Собираем данные клиента.
-  */
+    /* =========================================
+       FORM DATA
+    ========================================== */
 
-  const data = {
+    function serializeForm(form) {
 
-    action:"lead",
+      const data =
+        new FormData(form);
 
-    type:"client",
+      const result = {};
 
-    name:
+      data.forEach(
+        (value, key) => {
+
+          result[key] = value;
+
+        }
+      );
+
+      return result;
+
+    }
+
+
+    /* =========================================
+       SEND LEAD
+    ========================================== */
+
+    async function sendLead(
+      form,
+      type,
+      messageElement
+    ) {
+
+      const formData =
+        serializeForm(form);
+
+
+      /*
+        Добавляем техническую информацию.
+      */
+
+      const payload = {
+
+        action: type,
+
+        type: type,
+
+        ...formData,
+
+        page:
+          window.location.href,
+
+        referrer:
+          document.referrer,
+
+        timestamp:
+          new Date().toISOString(),
+
+        userAgent:
+          navigator.userAgent,
+
+        utm:
+          getSavedUTM()
+
+      };
+
+
+      /*
+        Если Apps Script ещё не подключён,
+        пока просто показываем успешное
+        сообщение.
+
+        Позже здесь будет реальная
+        отправка в Google Sheets.
+      */
+
+      if (
+        !CONFIG.APPS_SCRIPT_URL
+      ) {
+
+        console.log(
+          "Заявка:",
+          payload
+        );
+
+
+        messageElement.style.display =
+          "block";
+
+
+        form.reset();
+
+
+        return;
+
+      }
+
+
+      try {
+
+        /*
+          Отправляем данные
+          в Google Apps Script.
+        */
+
+        await fetch(
+          CONFIG.APPS_SCRIPT_URL,
+          {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+
+              "Content-Type":
+                "text/plain;charset=utf-8"
+
+            },
+
+            body:
+              JSON.stringify(payload)
+
+          }
+        );
+
+
+        messageElement.style.display =
+          "block";
+
+
+        form.reset();
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        messageElement.textContent =
+          "Не удалось отправить заявку. Позвоните нам напрямую.";
+
+
+        messageElement.style.display =
+          "block";
+
+      }
+
+    }
+
+
+    /* =========================================
+       CUSTOMER FORM
+    ========================================== */
+
+    const leadForm =
       document.getElementById(
-        "clientName"
-      ).value.trim(),
+        "leadForm"
+      );
 
-    phone:
+
+    const leadMessage =
       document.getElementById(
-        "clientPhone"
-      ).value.trim(),
-
-    telegram:
-      document.getElementById(
-        "clientTelegram"
-      ).value.trim(),
-
-    region:
-      document.getElementById(
-        "clientRegion"
-      ).value,
-
-    service:
-      document.getElementById(
-        "service"
-      ).value,
-
-    message:
-      document.getElementById(
-        "message"
-      ).value.trim(),
-
-    source:
-      document.getElementById(
-        "source"
-      ).value
-
-  };
+        "leadMessage"
+      );
 
 
-  try{
+    leadForm.addEventListener(
+      "submit",
+      async event => {
 
-    await sendToAppsScript(
-      data
+        event.preventDefault();
+
+
+        const button =
+          leadForm.querySelector(
+            "button[type='submit']"
+          );
+
+
+        const originalText =
+          button.textContent;
+
+
+        button.disabled =
+          true;
+
+
+        button.textContent =
+          "Отправляем...";
+
+
+        await sendLead(
+          leadForm,
+          "lead",
+          leadMessage
+        );
+
+
+        button.disabled =
+          false;
+
+
+        button.textContent =
+          originalText;
+
+      }
     );
 
 
-    leadStatus.textContent =
-    "Заявка отправлена! Мы свяжемся с вами.";
+    /* =========================================
+       WORKER FORM
+    ========================================== */
 
-    leadStatus.className =
-    "form-status ok";
-
-
-    leadForm.reset();
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    leadStatus.textContent =
-    "Не удалось отправить заявку. Проверьте подключение или свяжитесь с нами напрямую.";
-
-    leadStatus.className =
-    "form-status error";
-
-  }
-
-});
-
-
-
-/* =========================================================
-   АНКЕТА СВАРЩИКА
-   ========================================================= */
-
-const workerForm =
-document.getElementById(
-  "workerForm"
-);
-
-const workerStatus =
-document.getElementById(
-  "workerStatus"
-);
-
-
-workerForm.addEventListener(
-"submit",
-async function(event){
-
-  event.preventDefault();
-
-
-  workerStatus.textContent =
-  "Отправляем анкету...";
-
-  workerStatus.className =
-  "form-status";
-
-
-  /*
-    Собираем данные сварщика.
-  */
-
-  const data = {
-
-    action:"worker",
-
-    type:"worker",
-
-    name:
+    const workerForm =
       document.getElementById(
-        "workerName"
-      ).value.trim(),
+        "workerForm"
+      );
 
-    phone:
+
+    const workerMessage =
       document.getElementById(
-        "workerPhone"
-      ).value.trim(),
-
-    telegram:
-      document.getElementById(
-        "workerTelegram"
-      ).value.trim(),
-
-    region:
-      document.getElementById(
-        "workerRegion"
-      ).value,
-
-    experience:
-      document.getElementById(
-        "workerExperience"
-      ).value,
-
-    specialization:
-      document.getElementById(
-        "workerSpecialization"
-      ).value.trim(),
-
-    tools:
-      document.getElementById(
-        "workerTools"
-      ).value,
-
-    comment:
-      document.getElementById(
-        "workerComment"
-      ).value.trim()
-
-  };
+        "workerMessage"
+      );
 
 
-  try{
+    workerForm.addEventListener(
+      "submit",
+      async event => {
 
-    await sendToAppsScript(
-      data
+        event.preventDefault();
+
+
+        const button =
+          workerForm.querySelector(
+            "button[type='submit']"
+          );
+
+
+        const originalText =
+          button.textContent;
+
+
+        button.disabled =
+          true;
+
+
+        button.textContent =
+          "Отправляем...";
+
+
+        await sendLead(
+          workerForm,
+          "worker",
+          workerMessage
+        );
+
+
+        button.disabled =
+          false;
+
+
+        button.textContent =
+          originalText;
+
+      }
     );
 
 
-    workerStatus.textContent =
-    "Анкета отправлена! Мы свяжемся с вами.";
+    /* =========================================
+       TELEGRAM / WHATSAPP
+    ========================================== */
 
-    workerStatus.className =
-    "form-status ok";
+    /*
+      Здесь автоматически меняем ссылки,
+      если ты изменишь CONFIG.
+    */
+
+    function setupContacts() {
+
+      const telegramLinks =
+        document.querySelectorAll(
+          'a[href*="t.me/your_username"]'
+        );
 
 
-    workerForm.reset();
+      telegramLinks.forEach(
+        link => {
+
+          link.href =
+            "https://t.me/" +
+            CONFIG.TELEGRAM;
+
+        }
+      );
 
 
-  }catch(error){
+      const whatsappLinks =
+        document.querySelectorAll(
+          'a[href*="wa.me/996700000000"]'
+        );
 
-    console.error(error);
+
+      whatsappLinks.forEach(
+        link => {
+
+          link.href =
+            "https://wa.me/" +
+            CONFIG.WHATSAPP;
+
+        }
+      );
+
+    }
 
 
-    workerStatus.textContent =
-    "Не удалось отправить анкету. Проверьте подключение.";
+    setupContacts();
 
-    workerStatus.className =
-    "form-status error";
 
-  }
+    /* =========================================
+       PHONE MASK
+    ========================================== */
 
-});
+    document
+      .querySelectorAll(
+        'input[type="tel"]'
+      )
+      .forEach(
+        input => {
 
-</script>
+          input.addEventListener(
+            "input",
+            () => {
+
+              /*
+                Простая очистка.
+                Не мешает вводить +996...
+              */
+
+              input.value =
+                input.value.replace(
+                  /[^\d+\-\(\)\s]/g,
+                  ""
+                );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       PREVENT EMPTY LINKS
+    ========================================== */
+
+    document
+      .querySelectorAll(
+        'a[href="#"]'
+      )
+      .forEach(
+        link => {
+
+          link.addEventListener(
+            "click",
+            event => {
+
+              event.preventDefault();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       CONSOLE
+    ========================================== */
+
+    console.log(
+      "%c ИСКРА ",
+      "background:#ff5a16;color:#000;font-size:20px;font-weight:bold;padding:5px;"
+    );
+
+    console.log(
+      "Сварка и металлоконструкции"
+    );
+
+  </script>
 
 
 </body>
 </html>
-```
